@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Jancent Carl Mendoza | The Apprentice Philosopher of Technology</title>
+  <!-- Google Fonts: Elegant Serif for philosophical tone + clean sans for modernity -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fef7e8;  /* warm, parchment-like foundation */
+      color: #2c2418;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* warm, earthy color palette */
+    :root {
+      --warm-ivory: #fff7ed;
+      --terracotta: #b87c4e;
+      --deep-umber: #4a3727;
+      --honey-glow: #e6d5b8;
+      --sage-mist: #9aa899;
+      --shadow-soft: 0 20px 35px -12px rgba(0,0,0,0.08);
+    }
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f0e3d4;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #b68b65;
+      border-radius: 10px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+    }
+
+    /* philosophical typography */
+    h1, h2, h3, .philosopher-quote, .signature-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #4f3522, #9b6a42);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+      color: #3e2a1f;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 70px;
+      height: 3px;
+      background: #d6a16e;
+      border-radius: 3px;
+    }
+
+    /* main layout */
+    .hero-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      margin-bottom: 5rem;
+      padding: 1rem 0;
+    }
+    .hero-text {
+      flex: 1.2;
+    }
+    .profile-frame {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+    }
+    .image-placeholder {
+      width: 280px;
+      height: 280px;
+      background: #e9dbc9;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-soft);
+      border: 4px solid #fef1e2;
+      transition: transform 0.3s ease, box-shadow 0.3s;
+      cursor: pointer;
+      background: linear-gradient(145deg, #f3e7da, #e3d2bf);
+    }
+    .image-placeholder:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
+    }
+    .image-placeholder i {
+      font-size: 4.5rem;
+      color: #b67b48;
+      margin-bottom: 0.8rem;
+    }
+    .image-placeholder p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: #6b4c2e;
+      background: rgba(255,250,240,0.7);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+    }
+
+    .philosopher-epigraph {
+      font-size: 1.3rem;
+      font-style: italic;
+      border-left: 4px solid #d6a16e;
+      padding-left: 1.5rem;
+      margin: 1.8rem 0;
+      color: #5c4230;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* about card with deep vocab */
+    .about-card {
+      background: #fffcf5;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #f3e5d4;
+      transition: all 0.3s;
+    }
+
+    .highlight-badge {
+      display: inline-block;
+      background: #e8d9ca;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #5b3e28;
+      margin-right: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /* skills learned */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .skill-item {
+      background: #ffffff;
+      border-radius: 60px;
+      padding: 0.7rem 1.5rem;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border: 1px solid #eedfcb;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .skill-item i {
+      color: #b67b48;
+    }
+    .skill-item:hover {
+      transform: translateY(-3px);
+      border-color: #c99864;
+      background: #fffbf4;
+    }
+
+    /* contact cards */
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2rem 0 1rem;
+    }
+    .contact-card {
+      flex: 1;
+      min-width: 220px;
+      background: #fffbf0;
+      border-radius: 1.5rem;
+      padding: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border: 1px solid #eedfc8;
+      transition: 0.2s;
+      text-decoration: none;
+      color: #2f241b;
+    }
+    .contact-card i {
+      font-size: 2rem;
+      color: #b77c4a;
+    }
+    .contact-card:hover {
+      background: #fff5e8;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 18px -10px rgba(0,0,0,0.1);
+      border-color: #cfaa82;
+    }
+    .contact-info h4 {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    /* philosophical quotes */
+    .insight-quote {
+      background: #f9efE2;
+      border-radius: 2rem;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #5c3e28;
+      border-left: 6px solid #d6a16e;
+      border-right: 6px solid #d6a16e;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 3rem;
+      margin-top: 2rem;
+      border-top: 1px solid #e6d5c0;
+      font-size: 0.9rem;
+      color: #6f5843;
+    }
+
+    /* animation & reveal */
+    .animate-fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+    }
+    .animate-fade-up.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* responsive */
+    @media (max-width: 800px) {
+      .container {
+        padding: 1.5rem;
+      }
+      .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2.8rem;
+      }
+      h2:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      h2 {
+        text-align: center;
+        display: block;
+      }
+      .philosopher-epigraph {
+        text-align: left;
+      }
+      .contact-container {
+        flex-direction: column;
+      }
+    }
+    .btn-subtle {
+      background: transparent;
+      border: 1px solid #c9a26e;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      cursor: default;
+      font-size: 0.8rem;
+    }
+    .tech-mantra {
+      display: inline-block;
+      background: #e6d9cb;
+      border-radius: 30px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Hero / Introduction with profile image holder -->
+<div class="hero-section animate-fade-up" id="heroSection">
+  <div class="hero-text">
+    <span class="tech-mantra"><i class="fas fa-feather-alt"></i>Apprentice of Wisdom The Church Of Jesus Christ of Latter-Day Saints</span>
+    <h1>Jancent Carl Mendoza</h1>
+    <p style="font-size: 1.2rem; font-weight: 400; color: #6c533b;">inquisitive mind · technologist in gestation</p>
+    <div class="philosopher-epigraph">
+      “To dwell in perpetual wonder is the seed of all mastery. <br>
+      I traverse the nexus of antiquity and modern circuitry—<br>
+      a Grade 9 wayfarer, a devotee to the Auxiliary Technology craft.”
+    </div>
+    <div>
+      <span class="highlight-badge"><i class="fas fa-school"></i> Lyceum of Aparri</span>
+      <span class="highlight-badge"><i class="fas fa-microchip"></i> Auxiliary Technology Program Trainee</span>
+    </div>
+  </div>
+  <div class="profile-frame">
+    <div class="image-placeholder" id="profileHolder">
+      <img src="me.png" alt="Jancent Carl Mendoza - Portrait" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+    </div>
+  </div>
+</div>
+
+  <!-- About Myself: deep philosophical articulation -->
+  <div class="about-card animate-fade-up" id="aboutSection">
+    <h2>Σ Selfhood & Contemplation</h2>
+    <p style="font-size: 1.08rem; margin-top: 0.8rem;">I am <strong>Jancent Carl Mendoza</strong>, a ninth-grade sojourner currently undergoing rigorous tutelage at the <strong>Lyceum of Aparri</strong>, immersed in the <strong>Auxiliary Technology Program</strong> — a discipline that harmonizes theoretical erudition with pragmatic dexterity. My existence oscillates between the quietude of philosophical introspection and the vibrant pulse of modern machinery.</p>
+    <p style="margin-top: 1rem;">I find profound fascination in the <strong>dialectic of innovation</strong>: how silicon, code, and human intention coalesce into tools that reshape reality. My engagement with contemporary technology is not merely utilitarian; it is an intellectual pilgrimage. I endeavor to learn, to deconstruct, and to reconstruct — recognizing that each line of logic, each spreadsheet, each presentation, is a fragment of a larger architecture of understanding.</p>
+    <p style="margin-top: 1rem;"><i class="fas fa-quote-left" style="color:#b67b48; margin-right: 8px;"></i> The apprentice who questions deeply becomes the master who builds wisely. My journey has just unfurled, yet I walk it with deliberate passion.</p>
+  </div>
+
+  <!-- The Acquired Arts: Excel, PowerPoint, Word, HTML/CSS -->
+  <div class="animate-fade-up" id="skillsSection">
+    <h2>⌨ The Acquired Arts</h2>
+    <p style="margin-bottom: 0.5rem;">Through diligent practice and scholastic exploration, I have cultivated proficiency in these foundational domains:</p>
+    <div class="skills-grid">
+      <div class="skill-item"><i class="fas fa-table"></i> Microsoft Excel</div>
+      <div class="skill-item"><i class="fas fa-chart-line"></i> Data arrangement & formulae</div>
+      <div class="skill-item"><i class="fas fa-chalkboard"></i> PowerPoint · visual rhetoric</div>
+      <div class="skill-item"><i class="fas fa-file-word"></i> Microsoft Word · articulate composition</div>
+      <div class="skill-item"><i class="fab fa-html5"></i> HTML5 · structure of the web</div>
+      <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS3 · aesthetic orchestration</div>
+    </div>
+    <p style="margin-top: 1rem; font-style: italic; color: #6e543e;">Each instrument is a lexicon; I wield them to manifest ideas from the abstract into the tangible.</p>
+  </div>
+
+  <!-- Technological Fascination & Exploration -->
+  <div class="about-card animate-fade-up" style="background: #fef7ea;">
+    <h2>⚙ The Call of Modern Technology</h2>
+    <p>My intrigue with <strong>modern technology</strong> transcends superficial consumption. I am enraptured by the elegance of computational logic, the poetry of responsive interfaces, and the invisible architectures that sustain our digital epoch. As a trainee in the Auxiliary Technology Program, I engage with systems that fortify infrastructures — from hardware comprehension to the subtle dance of software.</p>
+    <p>I believe that the coming era demands not only coders but <strong>philosopher-engineers</strong>: individuals who consider the ethical, aesthetic, and human dimensions of innovation. Hence, I endeavor to learn voraciously — exploring beyond the syllabus, building small experiments, and documenting my insights as meditations.</p>
+    <div style="margin-top: 1.2rem;"><i class="fas fa-cogs" style="color:#b67b48;"></i> <strong>Current pursuits:</strong> deepening front-end craftsmanship, understanding auxiliary system maintenance, and cultivating a personal digital garden.</div>
+  </div>
+
+  <!-- Contact information: cellphone & email -->
+  <div class="animate-fade-up" id="contactSection">
+    <h2>✉ Epistolary Connexions</h2>
+    <p style="margin-bottom: 1.2rem;">Seek discourse, collaboration, or philosophical exchange? Reach me through the channels below.</p>
+    <div class="contact-container">
+      <div class="contact-card" id="phoneCard">
+        <i class="fas fa-mobile-alt"></i>
+        <div class="contact-info">
+          <h4>Mobile Number</h4>
+          <p>09494335253</p>
+          <small style="font-size: 0.7rem;"><i class="fas fa-copy"></i> tap to copy</small>
+        </div>
+      </div>
+      <div class="contact-card" id="emailCard">
+        <i class="fas fa-envelope"></i>
+        <div class="contact-info">
+          <h4>Email Address</h4>
+          <p>mjancentcarl@gmail.com</p>
+          <small style="font-size: 0.7rem;"><i class="fas fa-copy"></i> tap to copy</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- A concluding philosophical reflection -->
+  <div class="insight-quote animate-fade-up">
+    <i class="fas fa-feather-alt" style="font-size: 2rem; opacity: 0.6; margin-bottom: 0.5rem; display: inline-block;"></i>
+    <p>“The apprentice does not merely imitate — he internalizes the principles, then transcends them. <br>In the union of classical wisdom and technological fluency, I forge my own path.”</p>
+    <div style="margin-top: 0.6rem;">— Jancent Carl Mendoza, grade 9 · Lyceum of Aparri</div>
+  </div>
+
+  <footer>
+    <p>© MMXXV Jancent Carl Mendoza — crafted with warm intention & intellectual ardor. <br> A portfolio etched in the spirit of a philosopher-in-training.</p>
+  </footer>
+</div>
+
+<script>
+  // Intersection Observer for reveal animations (fade-up)
+  const animatedElements = document.querySelectorAll('.animate-fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -20px 0px" });
+  animatedElements.forEach(el => observer.observe(el));
+
+  // Helper function for copy-to-clipboard with subtle toast-style alert
+  function copyToClipboard(text, successMsg) {
+    navigator.clipboard.writeText(text).then(() => {
+      // create temporary floating notification (philosophical touch)
+      const toast = document.createElement('div');
+      toast.innerText = successMsg;
+      toast.style.position = 'fixed';
+      toast.style.bottom = '30px';
+      toast.style.left = '50%';
+      toast.style.transform = 'translateX(-50%)';
+      toast.style.backgroundColor = '#4a3727';
+      toast.style.color = '#fef0e0';
+      toast.style.padding = '12px 24px';
+      toast.style.borderRadius = '60px';
+      toast.style.fontFamily = "'Inter', sans-serif";
+      toast.style.fontSize = '0.9rem';
+      toast.style.zIndex = '9999';
+      toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+      toast.style.backdropFilter = 'blur(8px)';
+      toast.style.border = '1px solid #d6b17e';
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 400);
+      }, 1800);
+    }).catch(() => {
+      alert("Could not copy automatically. You may select the text manually.");
+    });
+  }
+
+  // Phone number copy
+  const phoneCard = document.getElementById('phoneCard');
+  if (phoneCard) {
+    phoneCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      const phoneNumber = '09494335253';
+      copyToClipboard(phoneNumber, '📞 Number inscribed: 09494335253 copied');
+    });
+  }
+
+  // Email copy
+  const emailCard = document.getElementById('emailCard');
+  if (emailCard) {
+    emailCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      const emailAddr = 'mjancentcarl@gmail.com';
+      copyToClipboard(emailAddr, '✉ Email copied to memory: mjancentcarl@gmail.com');
+    });
+  }
+
+  // Optional: add a subtle dynamic hover on profile holder (just a visual reminder)
+  const profilePlaceholder = document.getElementById('profileHolder');
+  if(profilePlaceholder) {
+    profilePlaceholder.addEventListener('click', () => {
+      let msg = document.createElement('div');
+      msg.innerText = '🖼️ Soon — a visage will grace this place.';
+      msg.style.position = 'fixed';
+      msg.style.bottom = '80px';
+      msg.style.left = '50%';
+      msg.style.transform = 'translateX(-50%)';
+      msg.style.backgroundColor = '#ecdbba';
+      msg.style.padding = '8px 16px';
+      msg.style.borderRadius = '40px';
+      msg.style.fontSize = '0.8rem';
+      msg.style.fontFamily = "'Cormorant Garamond', serif";
+      msg.style.color = '#3e2a1f';
+      msg.style.border = '1px solid #b38657';
+      document.body.appendChild(msg);
+      setTimeout(() => msg.remove(), 1500);
+    });
+  }
+
+  // Additional subtle interaction: click on any skill item shows a gentle philosophical note
+  const skillItems = document.querySelectorAll('.skill-item');
+  skillItems.forEach(skill => {
+    skill.addEventListener('click', () => {
+      const toolName = skill.innerText.trim();
+      const note = document.createElement('div');
+      note.innerText = `📜 "${toolName}" — an instrument of logic, mastered through contemplation.`;
+      note.style.position = 'fixed';
+      note.style.bottom = '120px';
+      note.style.left = '50%';
+      note.style.transform = 'translateX(-50%)';
+      note.style.backgroundColor = '#fff3e6';
+      note.style.padding = '10px 18px';
+      note.style.borderRadius = '28px';
+      note.style.fontSize = '0.8rem';
+      note.style.boxShadow = '0 5px 12px rgba(0,0,0,0.1)';
+      note.style.borderLeft = '4px solid #b77c4a';
+      note.style.fontFamily = "'Inter', sans-serif";
+      note.style.zIndex = '1000';
+      document.body.appendChild(note);
+      setTimeout(() => note.remove(), 1500);
+    });
+  });
+
+  // for elegance, add a tiny ripple of enlightenment on contact cards hover handled by CSS,
+  // but we enhance the initial philosophy
+
+  // pre-reveal any visible elements on load
+  window.addEventListener('load', () => {
+    animatedElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) {
+        el.classList.add('reveal');
+      }
+    });
+  });
+</script>
+</body>
+</html>
+```
